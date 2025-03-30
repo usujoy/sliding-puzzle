@@ -143,7 +143,9 @@ class Game {
   }
 
   winningMessage() {
-    alert("You Won !");
+    const winMessage = document.querySelector(".winner");
+
+    winMessage.classList.add("show");
   }
 }
 
@@ -156,6 +158,7 @@ const gameLoad = () => {
   let puzzle = game.shuffleNumbers(numbers);
 
   const gamePad = document.querySelector(".main-box");
+  const restart = document.querySelector("button");
 
   game.updateGamePad(puzzle);
 
@@ -171,6 +174,10 @@ const gameLoad = () => {
     if (game.hasWon(puzzle)) {
       game.winningMessage();
     }
+  });
+
+  restart.addEventListener("click", () => {
+    window.location.reload();
   });
 };
 
