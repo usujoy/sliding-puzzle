@@ -37,7 +37,6 @@ class Game {
     for (let i = from; i < to; i++) {
       numbers.push(i);
     }
-    console.log(numbers);
 
     return numbers;
   }
@@ -100,6 +99,9 @@ class Game {
       const tile = document.getElementById(index);
 
       tile.textContent = shuffledNumbers[index];
+
+      if (tile.textContent === "") tile.classList.add("empty-tile");
+      else tile.classList.remove("empty-tile");
     }
   }
 
@@ -169,8 +171,6 @@ const gameLoad = () => {
     if (game.hasWon(puzzle)) {
       game.winningMessage();
     }
-
-    console.log(tile);
   });
 };
 
